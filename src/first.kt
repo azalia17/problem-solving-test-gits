@@ -1,17 +1,19 @@
+//fungsi sloanesOeis membutuhkan 1 inputan bertipe integer dan akan mengembalikan nilai bertipe string
 fun sloanesOeis(n: Int): String {
     val output = mutableListOf<String>()
 
     // looping berdasarkan dari inputan user
     // dimulai dari 0 agar output yang dihasilkan sesuai (mulai dari 1 bukan 2)
     for (i in 0..n) {
-        // eksekusi rumus
-        val value = i*(i+1)/2 + 1
+        // melakukan perhitungan
+        val value = i * (i + 1) / 2 + 1
 
         // store hasil dari perhitungan tadi ke dalam list output.
-        // diubah menjadi string dengan tujuan memudahkan saat print agar dapat di concatinate dengan '-'
+        // diubah menjadi string dengan tujuan memudahkan saat print agar dapat diconcatenate dengan '-'
         output.add(value.toString())
     }
-    // concatinate value dari list output dengan '-' menjadi satu string
+
+    // concatenate value dari list output dengan '-' menjadi satu string
     return output.joinToString("-")
 }
 

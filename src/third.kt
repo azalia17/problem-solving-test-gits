@@ -5,7 +5,7 @@ fun isBalancedBracket(input: String): String {
     // membuat sebuah read-only set berisi opening brackets
     val openingBrackets = setOf('(', '[', '{')
 
-    // membuat read-only map berisi pasangan dari bracket
+    // membuat read-only map berisi closing brackets dan pasangannya
     val closingBrackets = mapOf(')' to '(', ']' to '[', '}' to '{')
 
     // looping setiap character dari input
@@ -21,7 +21,7 @@ fun isBalancedBracket(input: String): String {
         // jika bernilai false, maka character akan dicek apakah dia merupakan salah satu dari key yang ada di closingBrackets map
         else if (closingBrackets.containsKey(char)) {
 
-            // dicek kembali apakah list masih kosong atau value terakhir yang ada di list tersebut tidak sama dengan character
+            // jika iya, dicek kembali apakah list masih kosong atau value terakhir yang ada di list tersebut tidak sama dengan character
             if (stack.isEmpty() || stack.removeAt(stack.size - 1) != closingBrackets[char]) {
 
                 // console akan print NO
@@ -41,8 +41,9 @@ fun isBalancedBracket(input: String): String {
 }
 
 fun main() {
-    print("Input: ")
+    print("Input (tanpa spasi): ")
     val input = readLine() ?: return
 
-    print("Output: ${isBalancedBracket(input)}")
+    if (input.isNotEmpty())
+        print("Output: ${isBalancedBracket(input)}")
 }
